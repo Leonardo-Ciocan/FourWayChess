@@ -23,7 +23,7 @@ namespace FourWayChess
         public MainWindow()
         {
             InitializeComponent();
-            int x;
+            
         }
     }
 }
