@@ -18,9 +18,18 @@ namespace FourWayChess
 	/// </summary>
 	public partial class PieceControl : UserControl
 	{
-		public PieceControl()
+		public PieceControl(PieceType type)
 		{
 			this.InitializeComponent();
+		    this.Loaded += (a, b) =>
+		    {
+		        if (type == PieceType.Pawn) pawn.Visibility = Visibility.Visible;
+                if (type == PieceType.Queen) queen.Visibility = Visibility.Visible;
+                if (type == PieceType.King) king.Visibility = Visibility.Visible;
+                if (type == PieceType.Rook) rook.Visibility = Visibility.Visible;
+                if (type == PieceType.Knight) knight.Visibility = Visibility.Visible;
+                if (type == PieceType.Bishop) bishop.Visibility = Visibility.Visible;
+		    };
 		}
 	}
 }

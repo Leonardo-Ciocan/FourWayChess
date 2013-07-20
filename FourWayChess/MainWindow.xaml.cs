@@ -26,10 +26,12 @@ namespace FourWayChess
             this.Loaded += MainWindow_Loaded;
         }
 
+        private double unitSize;
+
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //There are 12 squares on the widest side so this is the size of the smallest.
-            var unitSize = root.ActualWidth/12.0;
+            unitSize = root.ActualWidth/12.0;
 
             for (var x = 0; x < 12; x++)
             {
@@ -65,6 +67,26 @@ namespace FourWayChess
                         root.Children.Add(rect);
                         Canvas.SetLeft(rect , x* unitSize);
                         Canvas.SetTop(rect, y * unitSize);
+                    }
+                }
+            }
+            DrawGame();
+        }
+
+        public void DrawGame()
+        {
+            gameBoard.Children.Clear();
+            for (int x = 0; x < 12; x++)
+            {
+                for (int y = 0; y< 12; y++)
+                {
+                    if (GameDispatcher.GameBoard[x, y] != null)
+                    {
+                        var cont = new PieceControl((GameDispatcher.GameBoard[x,y] as Piece).Type){Height=unitSize , Width = unitSize};
+                        gameBoard.Children.Add(cont);
+                        Canvas.SetLeft(cont , x* unitSize);
+                        Canvas.SetTop(cont, y * unitSize);
+
                     }
                 }
             }
