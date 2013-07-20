@@ -26,6 +26,7 @@ namespace FourWayChess
             this.Loaded += MainWindow_Loaded;
         }
 
+        Rectangle[,] backgroundBoard = new Rectangle[12,12];
         private double unitSize;
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -43,14 +44,14 @@ namespace FourWayChess
                         if (y%2 == 0)
                         {
                             if (x % 2 == 0)
-                                col = Colors.White;
+                                col = Colors.LightGray;
                             else
                                 col = Colors.Red;
                         }
                         else
                         {
                             if (x % 2 != 0)
-                                col = Colors.White;
+                                col = Colors.LightGray;
                             else
                                 col = Colors.Red;
 
@@ -64,6 +65,12 @@ namespace FourWayChess
                             Stroke = new SolidColorBrush(Colors.Black),
                             StrokeThickness = 0.5
                         };
+
+                        backgroundBoard[x, y] = rect;
+
+                        rect.MouseEnter += (a, b) => ((a as Rectangle).Fill as SolidColorBrush).Opacity = 0.4;
+                        rect.MouseLeave += (a, b) => ((a as Rectangle).Fill as SolidColorBrush).Opacity = 1;
+
                         root.Children.Add(rect);
                         Canvas.SetLeft(rect , x* unitSize);
                         Canvas.SetTop(rect, y * unitSize);
@@ -90,6 +97,11 @@ namespace FourWayChess
                     }
                 }
             }
+        }
+
+        public void ShowAvailableMovesFor()
+        {
+            
         }
     }
 }
