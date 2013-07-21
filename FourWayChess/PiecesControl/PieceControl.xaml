@@ -5,9 +5,19 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d"
 	x:Class="FourWayChess.PieceControl"
-	x:Name="UserControl" Height="200" Width="200" IsHitTestVisible="False">
+	x:Name="UserControl" Height="200" Width="200" IsHitTestVisible="True">
 
 	<Grid x:Name="LayoutRoot">
+
+		<Grid x:Name="SelectedMask" Visibility="Hidden">
+			<Grid.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF489DF1" Offset="0"/>
+					<GradientStop Color="#FF0080FF" Offset="1"/>
+				</LinearGradientBrush>
+			</Grid.Background>
+		</Grid>
+
 		<Path x:Name="pawn" Data="M15.269439,0C20.136616,0 24.081999,3.9466209 24.081999,8.8139191 24.081999,11.855976 22.540835,14.538462 20.196684,16.122538L19.884071,16.323 23.505026,16.323C25.339712,16.323 26.828001,17.470078 26.828001,18.882851 26.828001,20.298122 25.339712,21.444 23.505026,21.444L19.163923,21.444 19.258085,22.201912C20.674692,32.536209,26.152676,43.139923,26.504269,43.812613L26.509712,43.823002 26.725702,43.823002C27.4002,43.823002 27.946999,44.405024 27.946999,45.122552 27.946999,45.660623 27.639425,46.122528 27.201084,46.319852L27.115984,46.353001 27.182753,46.353001 27.191952,46.801C27.345654,47.044498 28.527868,49.043083 28.527868,49.043084 30.879498,53.608152 30.199791,56.364629 30.199791,56.364629 29.955553,58.493308 28.800165,60.308745 28.585676,60.63043L28.568487,60.656001 28.659302,60.656001C28.832501,60.656001 28.973,60.809546 28.973,60.999802 28.973,61.187257 28.832501,61.341002 28.659302,61.341002L27.883366,61.341002 28.057863,61.349653C29.416372,61.4851,30.484156,62.612043,30.539,64L0,64C0.05493024,62.612043,1.1226665,61.4851,2.4822236,61.349653L2.6568633,61.341002 1.8821869,61.341002C1.7076284,61.341002 1.5669994,61.187257 1.5669994,60.999802 1.5669994,60.809546 1.7076284,60.656001 1.8821869,60.656001L2.0939894,60.656001 1.8640413,60.316751C0.69057544,58.476893 0.41816731,56.408929 0.41816711,56.408929 -0.43999751,52.703156 2.2267861,49.043083 2.2267866,49.043084 3.070042,47.867647 3.5994156,46.82642 3.7682859,46.477283L3.7952262,46.420976 3.6894561,46.415291C3.0736538,46.34872 2.5929993,45.79514 2.5929996,45.122552 2.5929993,44.405024 3.1398772,43.823002 3.8143159,43.823002L4.177064,43.823002 4.1822692,43.81123C7.3812338,36.476621,10.532585,23.510241,11.005459,21.529011L11.02571,21.444 7.0325137,21.444C5.1992675,21.444 3.7109991,20.298122 3.7109996,18.882851 3.7109991,17.470078 5.1992675,16.323 7.0325137,16.323L10.654839,16.323 10.342231,16.122538C7.9981171,14.538462 6.4569989,11.855976 6.4569989,8.8139191 6.4569989,3.9466209 10.402261,0 15.269439,0z" Stretch="Uniform" Margin="3" RenderTransformOrigin="0.5,0.5" Stroke="Black" Visibility="Collapsed">
 			<Path.Fill>
 				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -17,10 +27,8 @@
 			</Path.Fill>
       <Path.RenderTransform>
         <TransformGroup>
-          <TransformGroup.Children>
-            <RotateTransform Angle="0" />
-            <ScaleTransform ScaleX="1" ScaleY="1" />
-          </TransformGroup.Children>
+        	<RotateTransform Angle="0" />
+        	<ScaleTransform ScaleX="1" ScaleY="1" />
         </TransformGroup>
       </Path.RenderTransform>
     </Path>
@@ -34,10 +42,8 @@
 		</Path.Fill>
 	  <Path.RenderTransform>
         <TransformGroup>
-          <TransformGroup.Children>
-            <RotateTransform Angle="0" />
-            <ScaleTransform ScaleX="1" ScaleY="1" />
-          </TransformGroup.Children>
+        	<RotateTransform Angle="0" />
+        	<ScaleTransform ScaleX="1" ScaleY="1" />
         </TransformGroup>
       </Path.RenderTransform>
     </Path>
@@ -52,10 +58,8 @@
 		</Path.Fill>
 	  <Path.RenderTransform>
         <TransformGroup>
-          <TransformGroup.Children>
-            <RotateTransform Angle="0" />
-            <ScaleTransform ScaleX="1" ScaleY="1" />
-          </TransformGroup.Children>
+        	<RotateTransform Angle="0" />
+        	<ScaleTransform ScaleX="1" ScaleY="1" />
         </TransformGroup>
       </Path.RenderTransform>
     </Path>
@@ -69,10 +73,8 @@
 		</Path.Fill>
       <Path.RenderTransform>
         <TransformGroup>
-          <TransformGroup.Children>
-            <RotateTransform Angle="0" />
-            <ScaleTransform ScaleX="1" ScaleY="1" />
-          </TransformGroup.Children>
+        	<RotateTransform Angle="0" />
+        	<ScaleTransform ScaleX="1" ScaleY="1" />
         </TransformGroup>
       </Path.RenderTransform>
     </Path>
@@ -86,10 +88,8 @@
 		</Path.Fill>
       <Path.RenderTransform>
         <TransformGroup>
-          <TransformGroup.Children>
-            <RotateTransform Angle="0" />
-            <ScaleTransform ScaleX="1" ScaleY="1" />
-          </TransformGroup.Children>
+        	<RotateTransform Angle="0" />
+        	<ScaleTransform ScaleX="1" ScaleY="1" />
         </TransformGroup>
       </Path.RenderTransform>
     </Path>
@@ -103,10 +103,8 @@
 		</Path.Fill>
       <Path.RenderTransform>
         <TransformGroup>
-          <TransformGroup.Children>
-            <RotateTransform Angle="0" />
-            <ScaleTransform ScaleX="1" ScaleY="1" />
-          </TransformGroup.Children>
+        	<RotateTransform Angle="0" />
+        	<ScaleTransform ScaleX="1" ScaleY="1" />
         </TransformGroup>
       </Path.RenderTransform>
     </Path>

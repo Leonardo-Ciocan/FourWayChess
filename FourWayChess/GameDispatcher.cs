@@ -8,20 +8,23 @@ namespace FourWayChess
 {
     public static class GameDispatcher
     {
-        public static object[,] GameBoard = new object[12, 12]
+        public static object[,] GameBoard = new object[14, 14]
         {
-            {null     ,null   ,rook() ,knight() ,bishop() ,queen() ,king()  ,bishop() ,knight() ,rook() ,null   ,null},
-            {null     ,null   ,pawn() ,pawn()   ,pawn()   ,pawn()  ,pawn()  ,pawn()   ,pawn()   ,pawn() ,null   ,null},
-            {rook()   ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,rook()},
-            {knight() ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,knight()},
-            {bishop() ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,bishop()},
-            {queen()  ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,king()},
-            {king()   ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,queen()},
-            {bishop() ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,bishop()},
-            {knight() ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,knight()},
-            {rook()   ,pawn() ,null   ,null     ,null     ,null    ,null    ,null     ,null     ,null   ,pawn() ,rook()},
-            {null     ,null   ,pawn() ,pawn()   ,pawn()   ,pawn()  ,pawn()  ,pawn()   ,pawn()   ,pawn() ,null   ,null},
-            {null     ,null   ,rook() ,knight() ,bishop() ,king()  ,queen() ,bishop() ,knight() ,rook() ,null   ,null}
+            {null     ,null   ,null   ,rook()   ,knight() ,bishop() ,queen() ,king()  ,bishop() ,knight() ,rook()  ,null  ,null   ,null},
+            {null     ,null   ,null   ,pawn()   ,pawn()   ,pawn()   ,pawn()  ,pawn()  ,pawn()   ,pawn()   ,pawn()  ,null  ,null   ,null},
+            {null     ,null   ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,null   ,null},
+            {rook()   ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,rook()},
+            {knight() ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,knight()},
+            {bishop() ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,bishop()},
+            {queen()  ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,king()},
+            {king()   ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,queen() },
+            {bishop() ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,bishop()},
+            {knight() ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,knight()},
+            {rook()   ,pawn() ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,pawn() ,rook()},
+            {null     ,null   ,null   ,null     ,null     ,null     ,null    ,null     ,null     ,null    ,null    ,null  ,null   ,null},
+            {null     ,null   ,null   ,pawn()   ,pawn()   ,pawn()   ,pawn()  ,pawn()  ,pawn()   ,pawn()   ,pawn()  ,null  ,null   ,null},
+            {null     ,null   ,null   ,rook()   ,knight() ,bishop() ,king()  ,queen() ,bishop() ,knight() ,rook()  ,null  ,null   ,null}
+
         };
 
 

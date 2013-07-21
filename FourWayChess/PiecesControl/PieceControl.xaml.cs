@@ -23,6 +23,7 @@ namespace FourWayChess
 			this.InitializeComponent();
 		    this.Loaded += (a, b) =>
 		    {
+                this.RenderTransform = new ScaleTransform{CenterX = ActualWidth/2 , CenterY = ActualHeight/2};
 		        if (type == PieceType.Pawn) pawn.Visibility = Visibility.Visible;
                 if (type == PieceType.Queen) queen.Visibility = Visibility.Visible;
                 if (type == PieceType.King) king.Visibility = Visibility.Visible;

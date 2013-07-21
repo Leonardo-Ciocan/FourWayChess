@@ -20,6 +20,7 @@ namespace FourWayChess
 
     public class Piece
     {
+        public Point Position;
         public PieceType Type;
 
         public Piece(PieceType pt)
