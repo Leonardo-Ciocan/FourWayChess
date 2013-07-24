@@ -44,16 +44,16 @@ namespace FourWayChess
                         if (y%2 == 0)
                         {
                             if (x % 2 == 0)
-                                col = Colors.LightGray;
+                                col = Colors.SandyBrown;
                             else
-                                col = Colors.Red;
+                                col = Colors.SaddleBrown;
                         }
                         else
                         {
                             if (x % 2 != 0)
-                                col = Colors.LightGray;
+                                col = Colors.SandyBrown;
                             else
-                                col = Colors.Red;
+                                col = Colors.SaddleBrown;
 
                         }
 
@@ -96,7 +96,7 @@ namespace FourWayChess
                         if (y > 10) (GameDispatcher.GameBoard[x, y] as Piece).ForwardDirection.X = -1;
                         if (y < 3) (GameDispatcher.GameBoard[x, y] as Piece).ForwardDirection.X = 1;
                         //(GameDispatcher.GameBoard[x,y] as Piece).Position = new Point(x,y);
-                        var cont = new PieceControl((GameDispatcher.GameBoard[x,y] as Piece).Type){Height=unitSize , Width = unitSize};
+                        var cont = new PieceControl((GameDispatcher.GameBoard[x,y] as Piece).Type , x , y){Height=unitSize , Width = unitSize};
                         cont.x = x;
                         cont.y = y;
                         gameBoard.Children.Add(cont);
