@@ -26,5 +26,37 @@
     	</Grid>
     	<Canvas x:Name="root" Margin="281,0,0,0" Height="700" VerticalAlignment="Top" HorizontalAlignment="Left" Width="700"/>
     	<Canvas x:Name="gameBoard" Margin="281,0,0,0" Height="700" VerticalAlignment="Top" HorizontalAlignment="Left" Width="700"/>
+    	<Rectangle HorizontalAlignment="Left" Height="100" Margin="1181.25,81.5,-270.25,0" Stroke="Black" VerticalAlignment="Top" Width="100">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    				<GradientStop Color="#FF3EA7FF" Offset="0"/>
+    				<GradientStop Color="#FF008BFF" Offset="1"/>
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+    	<Rectangle HorizontalAlignment="Left" Height="100" Margin="1286.25,81.5,-375.25,0" Stroke="Black" VerticalAlignment="Top" Width="100">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    				<GradientStop Color="#FF00A845" Offset="0"/>
+    				<GradientStop Color="#FF007C1C" Offset="1"/>
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+    	<Rectangle HorizontalAlignment="Left" Height="100" Margin="1391.25,81.5,-480.25,0" Stroke="Black" VerticalAlignment="Top" Width="100">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    				<GradientStop Color="#FFFFA73E" Offset="0"/>
+    				<GradientStop Color="#FFC96E00" Offset="1"/>
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
+    	<Rectangle HorizontalAlignment="Left" Height="100" Margin="1496.25,81.5,-585.25,0" Stroke="Black" VerticalAlignment="Top" Width="100">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    				<GradientStop Color="#FFB93EFF" Offset="0"/>
+    				<GradientStop Color="#FF5600AC" Offset="1"/>
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    	</Rectangle>
     </Grid>
 </Window>
