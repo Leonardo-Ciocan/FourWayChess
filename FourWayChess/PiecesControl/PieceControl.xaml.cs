@@ -33,13 +33,15 @@ namespace FourWayChess
                 if (type == PieceType.Knight) knight.Visibility = Visibility.Visible;
                 if (type == PieceType.Bishop) bishop.Visibility = Visibility.Visible;
                 SetPlayerColor(x,y);
+		        this.x = x;
+		        this.y = y;
 		    };
 		}
 
-
+        public Path shape=new Path();
 	    public void SetPlayerColor(int x , int y)
 	    {
-	        Path shape=new Path();
+	        
 	        foreach (FrameworkElement p in LayoutRoot.Children)
 	        {
 	            if (p.GetType() == typeof (Path))

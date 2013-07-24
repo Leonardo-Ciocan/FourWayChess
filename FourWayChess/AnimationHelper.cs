@@ -60,19 +60,30 @@ namespace AnimationHelper.WPF
         /// <returns></returns>
         public static Storyboard SmoothMove(
             FrameworkElement target,
-            double to,
+            double toY,
+            double toX,
             double duration,
             bool autoStart = true,
             bool autoReverse = false)
         {
             Storyboard sb = new Storyboard();
 
+
+            var dx = new DoubleAnimation
+            {
+                From = Canvas.GetLeft(target),
+                Duration = new Duration(TimeSpan.FromSeconds(duration))
+            };
+            dx.To = toX;
+            Storyboard.SetTargetProperty(dx, new PropertyPath("(Canvas.Left)"));
+            sb.Children.Add(dx);
+
             var dy = new DoubleAnimation
             {
                 From = Canvas.GetTop(target),
                 Duration = new Duration(TimeSpan.FromSeconds(duration))
             };
-            dy.To = to;
+            dy.To = toY;
             Storyboard.SetTargetProperty(dy, new PropertyPath("(Canvas.Top)"));
             sb.Children.Add(dy);
 
