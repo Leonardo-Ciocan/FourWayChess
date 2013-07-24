@@ -58,7 +58,12 @@ namespace AnimationHelper.WPF
         /// <param name="autoStart">Whether the animation should immidiately start</param>
         /// <param name="autoReverse">Whether the animation should loop to its starting values</param>
         /// <returns></returns>
-        public static Storyboard SmoothMove(FrameworkElement target, double to, double duration, bool autoStart = true, bool autoReverse = false)
+        public static Storyboard SmoothMove(
+            FrameworkElement target,
+            double to,
+            double duration,
+            bool autoStart = true,
+            bool autoReverse = false)
         {
             Storyboard sb = new Storyboard();
 
@@ -89,10 +94,10 @@ namespace AnimationHelper.WPF
         {
             if (toX == null && toY == null) throw new Exception("Must specify either X or Y scaling");
 
-            if (target.RenderTransform == null) target.RenderTransform = new ScaleTransform();
+            target.RenderTransform = new ScaleTransform();
             if(CenterProportion == null) CenterProportion = new Point(0.5,0.5);
-            (target.RenderTransform as ScaleTransform).CenterX = CenterProportion.Value.X;
-            (target.RenderTransform as ScaleTransform).CenterY = CenterProportion.Value.Y;
+            (target.RenderTransform as ScaleTransform).CenterX = CenterProportion.Value.X * target.ActualWidth;
+            (target.RenderTransform as ScaleTransform).CenterY = CenterProportion.Value.Y * target.ActualHeight;
 
             var sb = new Storyboard();
             if (toX != null)
@@ -103,7 +108,7 @@ namespace AnimationHelper.WPF
                     From = (target.RenderTransform as ScaleTransform).ScaleX,
                     To = toX
                 };
-                Storyboard.SetTargetProperty(dy, new PropertyPath(ScaleTransform.ScaleXProperty));
+                Storyboard.SetTargetProperty(dy, new PropertyPath("RenderTransform.ScaleX"));
                 sb.Children.Add(dy);
             }
 
@@ -115,11 +120,11 @@ namespace AnimationHelper.WPF
                     From = (target.RenderTransform as ScaleTransform).ScaleY,
                     To = toY
                 };
-                Storyboard.SetTargetProperty(dy, new PropertyPath(ScaleTransform.ScaleYProperty));
+                Storyboard.SetTargetProperty(dy, new PropertyPath("RenderTransform.ScaleY"));
                 sb.Children.Add(dy);
             }
 
-            Storyboard.SetTarget(sb, target.RenderTransform);
+            Storyboard.SetTarget(sb, target);
 
             sb.AutoReverse = autoReverse;
             if (autoStart) sb.Begin();

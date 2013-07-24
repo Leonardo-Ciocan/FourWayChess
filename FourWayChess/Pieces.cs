@@ -20,12 +20,13 @@ namespace FourWayChess
 
     public class Piece
     {
-        public Point Position;
         public PieceType Type;
 
         public Piece(PieceType pt)
         {
             Type = pt;
         }
+
+        public Vector ForwardDirection = new Vector();
     }
 }

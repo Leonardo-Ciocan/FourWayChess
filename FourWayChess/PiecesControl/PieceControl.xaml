@@ -7,7 +7,7 @@
 	x:Class="FourWayChess.PieceControl"
 	x:Name="UserControl" Height="200" Width="200" IsHitTestVisible="True">
 
-	<Grid x:Name="LayoutRoot">
+	<Grid x:Name="LayoutRoot" Background="#00000000">
 
 		<Grid x:Name="SelectedMask" Visibility="Hidden">
 			<Grid.Background>

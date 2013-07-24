@@ -32,5 +32,7 @@ namespace FourWayChess
                 if (type == PieceType.Bishop) bishop.Visibility = Visibility.Visible;
 		    };
 		}
+
+	    public int x, y;
 	}
 }

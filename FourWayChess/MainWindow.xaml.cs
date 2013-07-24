@@ -78,6 +78,7 @@ namespace FourWayChess
                 }
             }
             DrawGame();
+          
         }
 
         public PieceControl Selected;
@@ -90,8 +91,14 @@ namespace FourWayChess
                 {
                     if (GameDispatcher.GameBoard[x, y] != null)
                     {
-                        (GameDispatcher.GameBoard[x,y] as Piece).Position = new Point(x,y);
+                        if (x > 10) (GameDispatcher.GameBoard[x, y] as Piece).ForwardDirection.X = -1;
+                        if (x < 3) (GameDispatcher.GameBoard[x, y] as Piece).ForwardDirection.X = 1;
+                        if (y > 10) (GameDispatcher.GameBoard[x, y] as Piece).ForwardDirection.X = -1;
+                        if (y < 3) (GameDispatcher.GameBoard[x, y] as Piece).ForwardDirection.X = 1;
+                        //(GameDispatcher.GameBoard[x,y] as Piece).Position = new Point(x,y);
                         var cont = new PieceControl((GameDispatcher.GameBoard[x,y] as Piece).Type){Height=unitSize , Width = unitSize};
+                        cont.x = x;
+                        cont.y = y;
                         gameBoard.Children.Add(cont);
                         Canvas.SetLeft(cont , x* unitSize);
                         Canvas.SetTop(cont, y * unitSize);
@@ -100,24 +107,52 @@ namespace FourWayChess
                         {
                             Selected = a as PieceControl;
                             root.RenderTransform = new ScaleTransform();
-                            AnimationHelper.WPF.AnimationHelper.ScaleTo(target:root, duration:1 , toX:1.4, toY:1.4).Completed+=(ax,bx)=> MessageBox.Show("");
+                            AnimationHelper.WPF.AnimationHelper.ScaleTo(target: Selected, duration: 0.2, toX: 1.4,
+                                toY: 1.4);
+                            ShowAvailableMovesFor(Selected.x,Selected.y);
                         };
 
                         cont.MouseLeftButtonUp += (a, b) =>
                         {
-                            //(Selected.RenderTransform as ScaleTransform).ScaleX = 1;
-                            //(Selected.RenderTransform as ScaleTransform).ScaleY = 1;
+                            AnimationHelper.WPF.AnimationHelper.ScaleTo(target: Selected, duration: 0.2, toX: 1,
+                                toY: 1);
                             Selected = null;
                         };
+
+
 
                     }
                 }
             }
         }
 
-        public void ShowAvailableMovesFor()
+        public void ShowAvailableMovesFor(int x , int y)
         {
-            
+            if ((GameDispatcher.GameBoard[x, y] as Piece).Type == PieceType.Knight)
+            {
+                try { if (!GameUtils.ContainsPiece(x+1, y+2))  backgroundBoard[x + 1, y + 2].Fill = new SolidColorBrush(Colors.DodgerBlue); }
+                catch { }
+                try{if (!GameUtils.ContainsPiece(x-1, y+2)) backgroundBoard[x - 1, y + 2].Fill = new SolidColorBrush(Colors.DodgerBlue);}catch{}
+                try{if (!GameUtils.ContainsPiece(x+1, y-2))backgroundBoard[x + 1, y - 2].Fill = new SolidColorBrush(Colors.DodgerBlue);}catch{}
+                try{if (!GameUtils.ContainsPiece(x-1, y-2))backgroundBoard[x - 1, y - 2].Fill = new SolidColorBrush(Colors.DodgerBlue);}catch{}
+
+                try {if (!GameUtils.ContainsPiece(x+2, y+1)) backgroundBoard[x + 2, y + 1].Fill = new SolidColorBrush(Colors.DodgerBlue); }
+                catch { }
+                try {if (!GameUtils.ContainsPiece(x-2, y+1)) backgroundBoard[x - 2, y + 1].Fill = new SolidColorBrush(Colors.DodgerBlue); }
+                catch { }
+                try {if (!GameUtils.ContainsPiece(x+2, y-1)) backgroundBoard[x + 2, y - 1].Fill = new SolidColorBrush(Colors.DodgerBlue); }
+                catch { }
+                try
+                {
+                    if (!GameUtils.ContainsPiece(x - 2, y - 1))
+                        backgroundBoard[x - 2, y - 1].Fill = new SolidColorBrush(Colors.DodgerBlue);
+                }
+                catch
+                {
+                }
+            }
         }
+
+
     }
 }
