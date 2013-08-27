@@ -168,11 +168,11 @@ namespace FourWayChess
                 if(r!=null)r.Fill = new SolidColorBrush( (Color)r.Tag);
             }
             Piece piece = (GameDispatcher.GameBoard[x, y] as Piece);
-                        foreach(PieceControl cont in root.Children)
+                        /*foreach(PieceControl cont in root.Children)
                             if ((GameDispatcher.GameBoard[cont.x, cont.y] as Piece).ForwardDirection !=
                                 piece.ForwardDirection) cont.IsHitTestVisible = false;
                             else
-                                cont.IsHitTestVisible = true;
+                                cont.IsHitTestVisible = true;*/
 
             if (piece.Type == PieceType.Knight)
             {
